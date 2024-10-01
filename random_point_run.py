@@ -17,6 +17,16 @@ def random_cursor():
 
 
 def print_screen():
+    global frame
+    clear_canvas()
+    TUK_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
+    if dx < x:
+        character.clip_composite_draw(frame * 100, 100 * 1, 100, 100,0,'h', x, y,100,100)
+    else:
+        character.clip_draw(frame * 100, 100 * 1, 100, 100, x, y,100,100)
+    cursor.clip_draw(0,0,50,52,dx,dy)
+    update_canvas()
+    frame = (frame + 1) % 8
     pass
     
 running = True
