@@ -49,7 +49,6 @@ frame = 0
 
 while running:
     sx,sy = x,y
-    
     for i in range(0,100+1,4):
         t = i / 100
         x = (1 - t) * sx + t * dx
