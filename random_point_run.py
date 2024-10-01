@@ -10,9 +10,22 @@ cursor = load_image('hand_arrow.png')
 
 
 def handle_events():
+    global running
+    global x, y, dx,dy
+    events = get_events()
+    for event in events:
+        if event.type == SDL_QUIT:
+            running = False
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+            running = False
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_a:
+            random_cursor()
     pass
 
 def random_cursor():
+    global dx,dy
+    dx = randint(0,TUK_WIDTH)
+    dy = randint(0,TUK_HEIGHT)
     pass
 
 
@@ -37,6 +50,7 @@ frame = 0
 while running:
         print_screen()
         handle_events()
+        delay(0.05)
     random_cursor()
 
 close_canvas()
