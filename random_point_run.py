@@ -48,9 +48,16 @@ dx,dy = x,y
 frame = 0
 
 while running:
+    sx,sy = x,y
+    
+    for i in range(0,100+1,4):
+        t = i / 100
+        x = (1 - t) * sx + t * dx
+        y = (1 - t) * sy + t * dy
         print_screen()
         handle_events()
         delay(0.05)
+        
     random_cursor()
 
 close_canvas()
